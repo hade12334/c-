@@ -1,0 +1,46 @@
+using System;
+
+namespace Himework_6._3
+{
+    class Program
+    {
+        static void Main()
+        {
+
+            decimal price1 = 2.98M;
+            decimal price2 = 4.50M;
+            decimal price3 = 9.98M;
+            decimal total = 0M;
+            int productNumber = 0;
+            int quantitySold = 0;
+            string continueLoop = "n";
+
+            while (continueLoop == "n")
+            {
+            Console.WriteLine("Enter product Number");
+                productNumber = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter quantity sold");
+                quantitySold = int.Parse(Console.ReadLine());
+
+                switch (productNumber) {
+
+                    case 1:
+                        total += price1 * quantitySold;
+                        break;
+                    case 2:
+                        total += price2 * quantitySold;
+                        break;
+                    case 3:
+                        total += price3 * quantitySold;
+                        break;
+
+
+                }
+
+                Console.WriteLine("Do you want to quit (y/n): ");
+            continueLoop = Console.ReadLine();
+            }
+            Console.WriteLine($"total: {total}");
+        }
+    }
+}
