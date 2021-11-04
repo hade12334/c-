@@ -1,0 +1,92 @@
+class Program
+    {
+        static bool perfect(int value)
+        {
+            int runtotal = 1;
+            for (int j = 2; j < value; j++)
+            {
+                if ((value % j) == 0)
+                {
+                    runtotal += j;
+                }
+            }
+            if (runtotal == value) { return true; }
+            return false;
+
+        }
+        static void dispaly(int value) {
+            string test = "";
+            for (int j = 2; j < value; j++)
+            {
+                if ((value % j) == 0)
+                {
+                    test += j;
+                    test += " + ";
+                }
+            }
+            test = test.Substring(0, test.Length - 2);
+            test += "= ";
+            test += value;
+            Console.WriteLine(test);
+        }
+        /*
+        static void dispaly(int value) {
+            string test = "";
+            for (int j = 2; j < value; j++)
+            {
+                if ((value % j) == 0)
+                {
+                    test += j;
+                    test += " + ";
+                    Console.Write($"{j} + ");
+                }
+            }
+            Console.WriteLine(value);
+        }
+         */
+        static void perfect()
+        {
+            for (int x = 2; x <= 1000; x++)
+            {
+
+                int runtotal = 1;
+
+                int[] newArray = new int[0];
+
+                int arraySize = 0;
+
+                for (int j = 2; j < x; j++)
+                {
+                    if ((x % j) == 0)
+                    {
+                        arraySize += 1;
+                        runtotal += j;
+                        Array.Resize(ref newArray, arraySize);
+                        newArray[arraySize - 1] = j;
+                    }
+                }
+                if (runtotal == x)
+                {
+                    Console.Write("1 + ");
+                    for (int i = 0; i < arraySize; i++)
+                    {
+                        if ((i + 1) == arraySize) { Console.Write($"{newArray[i]} = "); }
+                        else { Console.Write($"{newArray[i]} + "); }
+
+                    }
+                    Console.WriteLine(x);
+                    Console.WriteLine();
+                }
+            }
+        }
+        static void Main(string[] args)
+        {
+            for(int x = 2; x < 1000; x++) { 
+            if (perfect(x)) {
+                dispaly(x);
+            }
+            }
+            
+        }
+    }
+}
