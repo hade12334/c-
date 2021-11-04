@@ -1,0 +1,63 @@
+using System;
+
+namespace homework_7._2
+{
+    class Program
+    {
+        static bool prime(int PrimeN) {
+            for (int x = 2; x <= (PrimeN - 1); x++){
+                if ((PrimeN % x) == 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        static bool primeHalf(int PrimeN)
+        {
+            for (int x = 2; x <= (PrimeN / 2); x++)
+            {
+                if ((PrimeN % x) == 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        static bool primeSQRoot(int PrimeN)
+        {
+            for (int x = 2; x <= Math.Sqrt(PrimeN); x++)
+            {
+                if ((PrimeN % x) == 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("My Way");
+            for (int x = 2; x < 10000; x++) {
+                if (prime(x)) {
+                    Console.WriteLine(x); 
+                }
+            }
+            Console.WriteLine("Half Way");
+            for (int x = 2; x < 10000; x++)
+            {
+                if (primeHalf(x))
+                {
+                    Console.WriteLine(x);
+                }
+            }
+            Console.WriteLine("SQRoot Way");
+            for (int x = 2; x < 10000; x++)
+            {
+                if (primeSQRoot(x))
+                {
+                    Console.WriteLine(x);
+                }
+            }
+        }
+    }
+}
