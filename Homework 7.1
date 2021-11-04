@@ -1,0 +1,44 @@
+using System;
+
+namespace homework_7._1
+{
+    class Program
+    {
+        static void perfect() {
+            for (int x = 2; x <= 1000; x++)
+            {
+
+                int runtotal = 1;
+
+                int[] newArray = new int[0];
+
+                int arraySize = 0;
+
+                for (int j = 2; j < x; j++)
+                {
+                    if ((x % j) == 0)
+                    {
+                        arraySize += 1;
+                        runtotal += j;
+                        Array.Resize(ref newArray, arraySize);
+                        newArray[arraySize - 1] = j;
+                    }
+                }
+                if (runtotal == x)
+                {
+                    Console.Write("1 + ");
+                    for (int i = 0; i < arraySize; i++) {
+                        if ((i + 1) == arraySize) { Console.Write($"{newArray[i]} = "); }
+                        else { Console.Write($"{newArray[i]} + "); }
+
+                    }
+                    Console.WriteLine(x);
+                    Console.WriteLine();
+                }
+            }
+        }
+        static void Main(string[] args) {
+            perfect();
+        }
+    }
+}
