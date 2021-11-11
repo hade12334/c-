@@ -1,0 +1,48 @@
+using System;
+
+namespace Homework_8._2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            {
+                int[] counts = { };
+
+                int wild = 0;
+
+                while (wild < 5) 
+                {
+                    Console.Write("Enter a number of 10 to 100 : ");
+                    int tom = int.Parse(Console.ReadLine());
+
+                    while (tom < 10 || tom > 100) 
+                    {
+                        Console.Write($"{tom} Not in the range. try again: ");
+                        tom = int.Parse(Console.ReadLine());
+                    }
+                    wild += 1;
+
+                    bool BS = true;
+
+                    foreach (int element in counts) 
+                    {
+                        if (element == tom) {
+                            BS = false;
+                        }
+                    }
+                    if (BS) {
+                        Array.Resize(ref counts, counts.Length + 1);
+                        counts[counts.Length - 1] = tom;
+
+                        Console.WriteLine($"{tom} is unique. ");
+                    }
+                }
+                for (int i = 0; i < counts.Length; i++) 
+                {
+                    Console.WriteLine($"{counts[i]}");
+                }
+            }
+        }
+    }
+}
